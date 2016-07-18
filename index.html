@@ -17,7 +17,17 @@
     <br/>
     <div id="results"></div>
     <script>
-        var myFirebase = new Firebase('https://FIREBASE-PROJECTID.firebaseio.com/');
+        var myFirebase = new Firebase('https://confident-mix-137523.firebaseio.com/');
+        var usernameInput = document.querySelector('#username');
+        var textInput = document.querySelector('#text');
+        var postButton = document.querySelector('#post');
+
+        postButton.addEventListener("click", function() {
+            var msgUser = usernameInput.value;
+            var msgText = textInput.value;
+            myFirebase.set(msgUser + " says: " + msgText);
+            textInput.value = "";
+        });
 
     </script>
 </body>
