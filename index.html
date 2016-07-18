@@ -5,23 +5,71 @@
     <meta charset="UTF-8">
     <title>Firebase Chat</title>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style>
+        body {
+            font-family: 'HelveticaNeue-Light';
+            background-image: url(img/desktop-high-quality-hd-wallpapers-3D.jpg);
+            background background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .msg {
+            margin: 10px 0;
+            padding: 10px;
+            width: 400px;
+            background-color: #efefef;
+        }
+
+        #username,
+        #text {
+            margin: 5px 0px;
+        }
+
+        #post {
+            padding: 0.5em 1em;
+            background-color: #50b1ff;
+            border: none;
+            color: #FFF;
+        }
+
+        #results {
+            background: #ddd;
+            height: 200px;
+            border: 1px solid;
+        }
+
+    </style>
 
 </head>
 
 <body>
-    <input id="username" type="text" placeholder="Name">
-    <br/>
-    <input id="text" type="text" placeholder="Message">
-    <br/>
-    <button id="post">Post</button>
-    <br/>
-    <div id="results"></div>
+    <form action="">
+        <input id="username" type="text" placeholder="Name">
+        <br/>
+        <input id="text" type="text" placeholder="Message">
+        <br/>
+        <button id="post">Post</button>
+        <br/>
+        <div id="results"></div>
+    </form>
+    <script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
     <script>
-        var myFirebase = new Firebase('https://confident-mix-137523.firebaseio.com/');
-        var usernameInput = document.querySelector('#username');
+        // Initialize Firebase
+        /*var config = {
+            apiKey: "AIzaSyDbFYKY4s0ShBZHC_rQ0pcvCbxqYvqwj4A",
+            authDomain: "confident-mix-137523.firebaseapp.com",
+            databaseURL: "https://confident-mix-137523.firebaseio.com",
+            storageBucket: "confident-mix-137523.appspot.com",
+        };
+        var myFirebase = firebase.initializeApp(config);*/
+
+    </script>
+    <script>
+        // var myFirebase = new Firebase('https://confident-mix-137523.firebaseio.com/');
+        /*var usernameInput = document.querySelector('#username');
         var textInput = document.querySelector('#text');
         var postButton = document.querySelector('#post');
-
+        textInput.value = "";
         postButton.addEventListener("click", function() {
             var msgUser = usernameInput.value;
             var msgText = textInput.value;
@@ -29,11 +77,34 @@
                 username: msgUser,
                 text: msgText
             });
-            textInput.value = "";
+
         });
+        var startListening = function() {
+            myFirebase.on('child_added', function(snapshot) {
+                var msg = snapshot.val();
+
+                var msgUsernameElement = document.createElement("b");
+                msgUsernameElement.textContent = msg.username;
+
+                var msgTextElement = document.createElement("p");
+                msgTextElement.textContent = msg.text;
+
+                var msgElement = document.createElement("div");
+                msgElement.appendChild(msgUsernameElement);
+                msgElement.appendChild(msgTextElement);
+
+                document.getElementById("results").appendChild(msgElement);
+            });
+        }
+
+        // Begin listening for data
+        startListening();*/
 
     </script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src='https://cdn.firebase.com/js/client/2.4.0/firebase.js'></script>
+    <script src="js.js"></script>
 </body>
 
 </html>
